@@ -1,0 +1,13 @@
+{
+  "name": "password-manager",
+  "version": "1.0.0",
+  "description": "Cross-platform password manager with browser extension",
+  "private": true,
+  "scripts": {
+    "desktop": "cd desktop && npm start",
+    "desktop:build": "cd desktop && npm run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
