@@ -4,8 +4,11 @@
   "description": "Password Manager Desktop App",
   "main": "src/main/index.js",
   "scripts": {
-    "start": "electron .",
-    "build": "electron-builder"
+    "dev": "concurrently \"vite --config vite.config.js\" \"sleep 2 && NODE_ENV=development electron .\"",
+    "vite:build": "vite build --config vite.config.js",
+    "start": "npm run vite:build && electron .",
+    "build": "npm run vite:build && electron-builder",
+    "postinstall": "electron-rebuild -f -w better-sqlite3"
   },
   "keywords": [],
   "author": "",
@@ -13,6 +16,14 @@
   "dependencies": {
     "bcryptjs": "^3.0.3",
     "better-sqlite3": "^12.6.2",
-    "electron": "^40.6.1"
+    "electron": "^40.6.1",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^5.1.4",
+    "concurrently": "^9.2.1",
+    "electron-builder": "^26.8.1",
+    "vite": "^7.3.1"
   }
 }
